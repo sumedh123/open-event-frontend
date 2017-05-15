@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="sixteen wide column">
+    <div class="ui fluid pointing secondary menu">
+      {{#link-to 'settings.contact-info' class='item'}}
+        {{t 'Contact Info'}}
+      {{/link-to}}
+      {{#link-to 'settings.password' class='item'}}
+        {{t 'Password'}}
+      {{/link-to}}
+      {{#link-to 'settings.email-preferences' class='item'}}
+        {{t 'Email-Preferences'}}
+      {{/link-to}}
+      {{#link-to 'settings.applications' class='item'}}
+        {{t 'Applications'}}
+      {{/link-to}}
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <form class="ui form">
+    <div class="field">
+      <label>Email</label>
+      <input type="text" name="first-name" placeholder="Email">
+    </div>
+    <div class="field">
+      <label>Phone</label>
+      <input type="text" name="last-name" placeholder="Phone">
+    </div>
+    <button class="ui primary button" type="submit">Save</button>
+  </form>
+</div>
