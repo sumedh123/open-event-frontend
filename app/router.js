@@ -53,7 +53,9 @@ router.map(function() {
         this.route('attendees');
         this.route('add-order');
         this.route('discount-codes');
-        this.route('access', { path: 'access-codes' });
+        this.route('access-codes', function() {
+          this.route('create');
+        });
       });
       this.route('speakers', function() {
         this.route('list', { path: '/:speakers_status' });
