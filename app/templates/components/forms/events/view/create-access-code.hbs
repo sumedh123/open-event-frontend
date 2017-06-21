@@ -1,0 +1,66 @@
+<form class="ui form" {{action 'submit' on='submit'}}>
+  <div class="field">
+    <label class="required">{{t 'Access Code'}}</label>
+    {{input type='text' name='access_code' value=access_code}}
+  </div>
+  <div class="field">
+    <label class="required">{{t 'Number of Access Tickets'}}</label>
+    {{input type='number' name='number_of_access_tickets' placeholder='0' min=0}}
+  </div>
+  <div class="grouped inline fields">
+    <label class="required">{{t 'Status'}}</label>
+    <div class="field">
+      {{ui-radio current='active' name='status' label='Active' value='active'}}
+    </div>
+    <div class="field">
+      {{ui-radio name='status' label='Inactive' value='inactive'}}
+    </div>
+  </div>
+  <div class="field">
+    <label class="required">{{t 'Select Tickets applied to the access code'}}</label>
+    <div class="ui checkbox">
+      {{ui-checkbox label='Select all Ticket types' name='all_ticket_types' checked=checked onChange=(action (mut checked))}}
+    </div>
+  </div>
+  <div>
+    <div class="inline field">
+      <label>{{t 'Show more options'}}</label>
+      {{ui-checkbox class='toggle' checked=showMoreOptions onChange=(action (mut showMoreOptions))}}
+    </div>
+    {{#if showMoreOptions}}
+      <div>{{t 'Set the min and max quantity allowed to purchase per order(Optional)'}}</div>
+      <div class="ui labeled input">
+        <div class="ui label">
+          {{t 'Min'}}
+        </div>
+        {{input type='number' name='min' min=0}}
+      </div>
+      <div class="ui labeled input">
+        <div class="ui label">
+          {{t 'Max'}}
+        </div>
+        {{input type='number' name='max'}}
+      </div>
+      <div class="ui hidden divider"></div>
+      {{t 'Validity Period(Optional)'}}
+      <div class="fields">
+        <div class="wide field {{if device.isMobile 'sixteen' 'five'}}">
+          <label>{{t 'Valid from'}}</label>
+          {{widgets/forms/date-picker}}
+        </div>
+        <div class="wide field {{if device.isMobile 'sixteen' 'five'}}">
+          <label>{{t 'Expires on'}}</label>
+          {{widgets/forms/date-picker}}
+        </div>
+        <div class="ui hidden divider"></div>
+      </div>
+    {{/if}}
+    <div class="field">
+      <label>{{t 'Access Link'}}</label>
+      {{input type='url' name='access_link' value=accessUrl class='field disabled'}}
+    </div>
+  </div>
+  <div class="ui hidden divider"></div>
+  <button class="ui button">{{t 'Cancel'}}</button>
+  <button type="submit" class="ui teal button">{{t 'Save'}}</button>
+</form>
