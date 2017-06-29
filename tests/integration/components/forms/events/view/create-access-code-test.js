@@ -5,6 +5,6 @@ import hbs from 'htmlbars-inline-precompile';
 moduleForComponent('forms/events/view/create-access-code', 'Integration | Component | forms/events/view/create access code');
 
 test('it renders', function(assert) {
-  this.render(hbs`{{forms/events/view/create-access-code}}`);
+  this.render(hbs`{{forms/events/view/create-access-code routing=routing}}`);
   assert.ok(this.$().html().trim().includes('Save'));
 });

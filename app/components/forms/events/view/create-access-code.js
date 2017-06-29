@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import FormMixin from 'open-event-frontend/mixins/form';
 
-const { Component, computed } = Ember;
+const { Component, computed, inject: { service } } = Ember;
 
 export default Component.extend(FormMixin, {
   getValidationRules() {
@@ -17,6 +17,10 @@ export default Component.extend(FormMixin, {
             {
               type   : 'empty',
               prompt : this.l10n.t('Please enter access code')
+            },
+            {
+              type  : 'regExp',
+              value : '^[a-zA-Z0-9]*$'
             }
           ]
         },
@@ -38,7 +42,7 @@ export default Component.extend(FormMixin, {
           rules      : [
             {
               type   : 'checked',
-              propmt : this.l10n.t('Please select the appropriate choices')
+              prompt : this.l10n.t('Please select the appropriate choices')
             }
           ]
         },
@@ -48,7 +52,7 @@ export default Component.extend(FormMixin, {
           rules      : [
             {
               type   : 'number',
-              propmt : this.l10n.t('Please enter the proper number')
+              prompt : this.l10n.t('Please enter the proper number')
             }
           ]
         },
@@ -58,7 +62,7 @@ export default Component.extend(FormMixin, {
           rules      : [
             {
               type   : 'number',
-              propmt : this.l10n.t('Please enter the proper number')
+              prompt : this.l10n.t('Please enter the proper number')
             }
           ]
         },
@@ -68,7 +72,7 @@ export default Component.extend(FormMixin, {
           rules      : [
             {
               type   : 'url',
-              propmt : this.l10n.t('Please enter a valid url')
+              prompt : this.l10n.t('Please enter a valid url')
             }
           ]
         }
