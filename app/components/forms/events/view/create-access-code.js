@@ -79,11 +79,12 @@ export default Component.extend(FormMixin, {
       }
     };
   },
+  routing    : service('routing'),
   accessCode : '',
   accessUrl  : computed('access_code', function() {
     const params = this.get('routing.router.router.state.params');
     // console.log(this.get('routing.router').generate('public', params['events.view'].event_id, { queryParams: { access_code: this.get('access_code') } }));
-    const access_url = (location.origin + this.get('routing.router').generate('public', params['events.view'].event_id, { queryParams: { access_code: this.get('access_code') } }) || ' ');
+    const access_url = (location.origin + this.get('routing.router').generate('public', params['events.view'].event_id, { queryParams: { access_code: this.get('access_code') } }) );
     if (access_url !== undefined) {
       return access_url;
     }
