@@ -22,6 +22,7 @@ moduleForModel('event', 'Unit | Serializer | event', {
     'model:session-type',
     'model:user',
     'model:discount-code',
+    'model:access-code',
     'transform:moment'
   ]
 });

@@ -11,22 +11,29 @@ export default Route.extend({
         return this.l10n.t('Inactive');
     }
   },
+  controllerName: 'events.view.tickets.access-codes.index',
   model(params) {
-    this.set('params', params);
-    return [
-      {
-        'accessCode'       : '#386',
-        'accessCodeUrl'    : 'https://github.com',
-        'accessibleTicket' : 'Early bird',
-        'validity'         : '3 months',
-        'isActive'         : true
-      }, {
-        'accessCode'       : '#386',
-        'accessCodeUrl'    : 'https://github.com',
-        'accessibleTicket' : 'Early bird',
-        'validity'         : '3 months',
-        'isActive'         : false
-      }
-    ];
+    if (params.access_status === 'active') {
+      return this.modelFor('events.view').query('accessCodes', {
+        filter: [
+          {
+            name : 'is-active',
+            op   : 'eq',
+            val  : true
+          }
+        ],
+        'page[size]': 10
+      });
+    }
+    return this.modelFor('events.view').query('accessCodes', {
+      filter: [
+        {
+          name : 'is-active',
+          op   : 'eq',
+          val  : false
+        }
+      ],
+      'page[size]': 10
+    });
   }
 });

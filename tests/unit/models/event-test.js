@@ -18,6 +18,7 @@ moduleForModel('event', 'Unit | Model | event', {
     'model:session-type',
     'model:user',
     'model:discount-code',
+    'model:access-code',
     'model:email-notification'
   ]
 });
