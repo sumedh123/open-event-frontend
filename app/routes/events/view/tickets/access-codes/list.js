@@ -22,18 +22,22 @@ export default Route.extend({
             val  : true
           }
         ],
-        'page[size]': 10
+        'page[size]': 1
+      });
+    } else if (params.access_status === 'inactive') {
+      return this.modelFor('events.view').query('accessCodes', {
+        filter: [
+          {
+            name : 'is-active',
+            op   : 'eq',
+            val  : false
+          }
+        ],
+        'page[size]': 1
       });
     }
-    return this.modelFor('events.view').query('accessCodes', {
-      filter: [
-        {
-          name : 'is-active',
-          op   : 'eq',
-          val  : false
-        }
-      ],
-      'page[size]': 10
-    });
+    else {
+      return this.modelFor('events.view').query('accessCodes', {});
+    }
   }
 });
