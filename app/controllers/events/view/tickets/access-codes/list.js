@@ -10,17 +10,18 @@ export default Controller.extend({
     },
     {
       propertyName : 'accessUrl',
-      title        : 'Access Code URL'
+      title        : 'Access Code URL',
+      disableSorting   : true
     },
     {
-      propertyName : 'validTill',
-      template     : 'components/ui-table/cell/cell-validity',
-      title        : 'Validity'
+      propertyName : 'valid-till',
+      title        : 'Validity',
+      template     : 'components/ui-table/cell/cell-validity'
     },
     {
-      propertyName : 'isActive',
-      template     : 'components/ui-table/cell/cell-label',
-      title        : 'Status'
+      propertyName : 'is-active',
+      title        : 'Status',
+      template     : 'components/ui-table/cell/cell-label'
     },
     {
       title            : 'Action',

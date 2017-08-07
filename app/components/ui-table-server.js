@@ -147,7 +147,7 @@ export default ModelsTable.extend({
   },
 
   pageSizeValues: computed(function() {
-    return A([10, 25, 50]);
+    return A([1, 10, 25, 50]);
   }),
 
   actions: {
@@ -200,7 +200,7 @@ export default ModelsTable.extend({
   },
 
   didReceiveAttrs() {
-    set(this, 'pageSize', 10);
+    set(this, 'pageSize', 1);
     set(this, 'currentPageNumber', 1);
     set(this, 'filteredContent', get(this, 'data'));
   },
@@ -209,7 +209,7 @@ export default ModelsTable.extend({
     this._super(...arguments);
 
     if (!get(this, 'pageSize')) {
-      set(this, 'pageSize', 10);
+      set(this, 'pageSize', 1);
     }
   },
 
